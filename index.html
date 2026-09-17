@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>play_music_theory — visual instrument</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <button class="help">?</button>
+    <div class="handle">@play_music_theory</div>
+
+    <div class="tools">
+      <button class="tool active" id="pen">✎</button>
+      <button class="tool" id="eraser">⌫</button>
+      <button class="tool" id="undo">↶</button>
+      <button class="tool" id="redo">↷</button>
+      <button class="tool" id="clear">⤨</button>
+    </div>
+
+    <div class="palette" id="palette"></div>
+
+    <div class="mini-controls">
+      <button class="mini" id="wave">▮▮</button>
+      <button class="mini" id="mode">⌄</button>
+      <button class="mini" id="sound">◌</button>
+      <button class="mini disabled">WAV</button>
+      <button class="mini disabled">MIDI</button>
+      <button class="mini" id="thin">╱</button>
+    </div>
+
+    <div class="lockline">
+      <button class="switch" id="grid"><span></span></button>
+      <span>♙</span>
+    </div>
+
+    <div class="sidebar-bottom">
+      <button class="circle" id="send">➤</button>
+      <button class="circle" id="menu">▦</button>
+    </div>
+  </aside>
+
+  <section class="workspace">
+    <div class="board">
+      <canvas id="canvas"></canvas>
+      <div class="scan-label" id="scanLabel">SCAN</div>
+    </div>
+
+    <div class="transport">
+      <button class="transport-play" id="play">▶</button>
+      <input id="tempo" type="range" min="40" max="240" value="120">
+      <span class="tempo" id="tempoText">120</span>
+      <div class="pages">
+        <button class="page active">1</button>
+        <button class="page">2</button>
+        <button class="page">3</button>
+      </div>
+      <div class="spacex"></div>
+      <button class="beat">•</button>
+      <button class="beat">••</button>
+      <button class="beat active">•••</button>
+      <button class="cloud" id="cloud">⌒</button>
+    </div>
+  </section>
+
+  <div class="mobile-title">
+  <span>play_music_theory</span>
+  <small>a visual instrument</small>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

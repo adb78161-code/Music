@@ -1,0 +1,56 @@
+*{box-sizing:border-box}
+:root{--paper:#fffefa;--ink:#20201e;--line:#d8d5cc}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;color:var(--ink);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+body{background:#faf9f5;background-image:radial-gradient(#d9d7d0 .7px,transparent .7px);background-size:9px 9px}
+.app{height:100vh;display:flex;padding:14px 18px 10px;gap:18px}
+.sidebar{width:125px;display:flex;flex-direction:column;align-items:center;position:relative;padding-top:2px}
+.help{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fffefa;font:inherit;font-size:18px;color:#777;align-self:flex-start;margin-left:3px}
+.handle{font-size:13px;margin:12px 0 12px;white-space:nowrap}
+.tools{display:grid;grid-template-columns:repeat(3,43px);gap:8px;margin-bottom:11px}
+.tool,.circle,.mini{width:43px;height:43px;border:1px solid var(--line);border-radius:50%;background:#fffefa;font:inherit;font-size:18px;display:grid;place-items:center}
+.tool.active{background:#1c1c1a;color:#fff;border-color:#1c1c1a}
+.palette{display:grid;grid-template-columns:repeat(3,43px);gap:8px}
+.color{width:43px;height:43px;border:0;border-radius:50%;position:relative}
+.color.selected:after{content:"";position:absolute;inset:-3px;border:2px solid #252522;border-radius:50%}
+.mini-controls{display:grid;grid-template-columns:repeat(3,43px);gap:7px;margin-top:15px;opacity:.9}
+.mini.disabled{opacity:.4;font-size:10px}.mini{font-size:13px}
+.lockline{display:flex;align-items:center;gap:13px;width:100%;margin-top:15px;padding-left:5px}
+.switch{width:45px;height:25px;border:2px solid #222;border-radius:20px;background:#fff;padding:2px;text-align:left}
+.switch span{display:block;width:16px;height:16px;border-radius:50%;background:#171715;transition:.2s}
+.switch.on{background:#171715}.switch.on span{background:#fff;transform:translateX(20px)}
+.sidebar-bottom{display:flex;gap:9px;margin-top:auto;padding-bottom:3px}
+.circle{width:40px;height:40px;font-size:15px}
+.workspace{flex:1;min-width:0;display:flex;flex-direction:column}
+.board{flex:1;min-height:0;background:var(--paper);border:1px solid #d2cec4;border-radius:3px;overflow:hidden;position:relative}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.scan-label{display:none}
+.transport{height:63px;display:flex;align-items:center;gap:11px;padding:5px 0;position:relative}
+.transport-play{width:43px;height:43px;border:0;border-radius:50%;background:#191918;color:#fff;font:inherit;font-size:16px;box-shadow:0 1px 2px #0002}
+#tempo{width:115px;accent-color:#222}
+.tempo{width:58px;height:43px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:#aaa;background:#fffefa}
+.pages{display:flex;gap:7px}
+.page,.beat,.cloud{width:43px;height:43px;border:1px solid var(--line);border-radius:50%;background:#fffefa;font:inherit;display:grid;place-items:center}
+.page.active,.beat.active{background:#191918;color:#fff;border-color:#191918}
+.spacex{flex:1}.beat{font-size:12px}.cloud{font-size:18px}
+.mobile-title{display:none}
+@media(max-width:700px){
+ body{overflow:auto}.app{height:auto;min-height:100vh;padding:8px 10px 10px;display:block}
+ .sidebar{width:100%;height:auto;display:block;padding:0}
+ .help{position:absolute;left:5px;top:0;width:39px;height:39px}
+ .handle{display:none}.tools{position:absolute;z-index:3;left:0;top:48px;display:flex;gap:7px}
+ .tool{width:43px;height:43px}.palette{position:absolute;z-index:3;left:0;top:101px;display:flex;gap:8px;overflow:hidden;width:calc(100vw - 20px)}
+ .color{width:43px;height:43px;flex:0 0 auto}
+ .mini-controls,.lockline,.sidebar-bottom{display:none}
+ .mobile-title{display:block;text-align:center;height:40px;padding-top:5px;font-size:18px}
+ .workspace{height:calc(100vh - 48px);display:block}
+ .board{height:calc(100% - 63px);margin-top:0;border-radius:12px}
+ .transport{height:63px;overflow:hidden;gap:7px}
+ #tempo{width:90px}.tempo{width:52px}.page,.beat,.cloud,.transport-play{width:48px;height:48px}
+}
+
+/* V7 aesthetic layer */
+body{letter-spacing:.01em}
+.board{box-shadow:0 8px 30px rgba(35,33,28,.035)}
+.board:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 15%,rgba(255,255,255,.55),transparent 42%)}
+.mobile-title{font-size:18px;letter-spacing:.02em}
+.mobile-title small{display:block;font-size:10px;color:#9b988f;margin-top:2px}
